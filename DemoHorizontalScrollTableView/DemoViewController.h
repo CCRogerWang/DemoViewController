@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DemoViewController.h
 //  DemoHorizontalScrollTableView
 //
 //  Created by roger on 2017/3/3.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DemoViewController : UIViewController
 
 @end
-
