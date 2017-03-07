@@ -14,7 +14,8 @@
 {
     
     __weak IBOutlet UITableView *_tableV;
-    
+    CollectionViewCell * _1CollecitonViewCell;
+    CollectionViewCell * _2CollecitonViewCell;
 }
 @end
 
@@ -50,18 +51,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     NSString * className = @"CollectionViewCell";
-    CollectionViewCell * cell = [_tableV dequeueReusableCellWithIdentifier:className];
-    if (!cell) {
-        cell = [[CollectionViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className];
-    }
     
-    if (indexPath.row == 1) {
-        [cell configureCollectionViewCellDelegate:self tableViewIndexPath:indexPath rows:10 itemClassName:@"CollectionViewItem" topOffset:10];
-        return cell;
+    
+    if (indexPath.row == 0) {
+        if (_1CollecitonViewCell == nil) {
+            _1CollecitonViewCell = [[CollectionViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className];
+            [_1CollecitonViewCell configureCollectionViewCellDelegate:self tableViewIndexPath:indexPath rows:10 itemClassName:@"CollectionViewItem" topOffset:10];
+        }
+        
+        return _1CollecitonViewCell;
     }
     else{
-        [cell configureCollectionViewCellDelegate:self tableViewIndexPath:indexPath rows:10 itemClassName:@"Type2Item" topOffset:10];
-        return cell;
+        if (_2CollecitonViewCell == nil) {
+            _2CollecitonViewCell = [[CollectionViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className];
+            [_2CollecitonViewCell configureCollectionViewCellDelegate:self tableViewIndexPath:indexPath rows:10 itemClassName:@"Type2Item" topOffset:10];
+        }
+        
+        return _2CollecitonViewCell;
     }
 }
 
@@ -78,15 +84,16 @@
 - (UICollectionViewCell *)collectionViewCell:(CollectionViewCell *)collectionViewCell cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger tableViewIndexPathOfRow = [collectionViewCell getTableViewIndexPath].row;
     if (tableViewIndexPathOfRow == 0) {
+        CollectionViewItem * cell = [[collectionViewCell getCollectionView] dequeueReusableCellWithReuseIdentifier:[collectionViewCell getItemClassName] forIndexPath:indexPath];
+        cell.randomColorLabel.textColor = [self getRandomColor];
+        return cell;
+    }
+    else if (tableViewIndexPathOfRow == 1){
         Type2Item * cell = [[collectionViewCell getCollectionView] dequeueReusableCellWithReuseIdentifier:[collectionViewCell getItemClassName] forIndexPath:indexPath];
         cell.backgroundColor = [self getRandomColor];
         
         return cell;
-    }
-    else if (tableViewIndexPathOfRow == 1){
-        CollectionViewItem * cell = [[collectionViewCell getCollectionView] dequeueReusableCellWithReuseIdentifier:[collectionViewCell getItemClassName] forIndexPath:indexPath];
-        cell.randomColorLabel.textColor = [self getRandomColor];
-        return cell;
+        
     }
     else{
         UICollectionViewCell * cell = [[collectionViewCell getCollectionView] dequeueReusableCellWithReuseIdentifier:[collectionViewCell getItemClassName] forIndexPath:indexPath];
