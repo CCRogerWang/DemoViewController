@@ -36,10 +36,10 @@
 #pragma mark - tableview delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1) {
-        return [CollectionViewCell getXibFrameHeightWithItemClassname:@"CollectionViewItem"];
+        return [CollectionViewCell getXibFrameHeightWithItemClassname:@"CollectionViewItem" TopOffset:10];
     }
     else{
-        return [CollectionViewCell getXibFrameHeightWithItemClassname:@"Type2Item"];
+        return [CollectionViewCell getXibFrameHeightWithItemClassname:@"Type2Item" TopOffset:10];
     }
 }
 
@@ -54,17 +54,13 @@
     if (!cell) {
         cell = [[CollectionViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className];
     }
-    [cell setDelegate:self];
-    [cell setTableViewIndexPath:indexPath];
     
     if (indexPath.row == 1) {
-        [cell setRows:10];
-        [cell setCollectionViewAndItemClassNameWith:@"CollectionViewItem"];
+        [cell configureCollectionViewCellDelegate:self tableViewIndexPath:indexPath rows:10 itemClassName:@"CollectionViewItem" topOffset:10];
         return cell;
     }
     else{
-        [cell setRows:10];
-        [cell setCollectionViewAndItemClassNameWith:@"Type2Item"];
+        [cell configureCollectionViewCellDelegate:self tableViewIndexPath:indexPath rows:10 itemClassName:@"Type2Item" topOffset:10];
         return cell;
     }
 }

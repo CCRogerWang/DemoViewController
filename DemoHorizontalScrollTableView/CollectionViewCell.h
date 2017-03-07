@@ -19,7 +19,15 @@
 
 @property (nonatomic, weak) id<CollectionViewCellDelegate> delegate;
 
-+ (float)getXibFrameHeightWithItemClassname:(NSString *)itemClassName;
++ (CGFloat)getXibFrameHeightWithItemClassname:(NSString *)itemClassName TopOffset:(int) topOffset;
+
+#pragma mark - configure
+
+- (void)configureCollectionViewCellDelegate:(id<CollectionViewCellDelegate>)delegate
+                         tableViewIndexPath:(NSIndexPath *)tableViewIndexPath
+                                       rows:(int) rows
+                              itemClassName:(NSString *)itemClassName
+                                  topOffset:(int)topOffset;
 
 #pragma mark - setter
 - (void)setRows:(int)rows;

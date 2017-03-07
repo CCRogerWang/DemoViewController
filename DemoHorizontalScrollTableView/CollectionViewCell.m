@@ -17,16 +17,17 @@
     int _rows;
     UIEdgeInsets _edgeInsets;
     NSIndexPath *_tableViewIndexPath;
+    int _topOffest;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
 
-+ (float)getXibFrameHeightWithItemClassname:(NSString *)itemClassName{
++ (CGFloat)getXibFrameHeightWithItemClassname:(NSString *)itemClassName TopOffset:(int) topOffset{
     NSArray * array = [[NSBundle mainBundle] loadNibNamed:itemClassName owner:self options:nil];
-    
-    return [[array firstObject]frame].size.height;
+//    NSLog(@"cell height = %f",ceil([[array firstObject]frame].size.height + padding));
+    return ceil([[array firstObject]frame].size.height + topOffset) + 1;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -39,6 +40,20 @@
         
     }
     return self;
+}
+#pragma mark - configure
+- (void)configureCollectionViewCellDelegate:(id<CollectionViewCellDelegate>)delegate
+                         tableViewIndexPath:(NSIndexPath *)tableViewIndexPath
+                                       rows:(int) rows
+                              itemClassName:(NSString *)itemClassName
+                                  topOffset:(int)topOffset{
+    self.delegate = delegate;
+    _tableViewIndexPath = tableViewIndexPath;
+    _rows = rows;
+    _topOffest = topOffset;
+    [self setCollectionViewAndItemClassNameWith:itemClassName];
+    [self setCellFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [CollectionViewCell getXibFrameHeightWithItemClassname:_itemClassName TopOffset:topOffset])];
+    
 }
 
 #pragma mark - setter
@@ -64,19 +79,19 @@
 
 
 - (void)setCollectionViewAndItemClassNameWith:(NSString *) itemClassName{
-    NSLog(@"itemClassName %@",itemClassName);
+    
     UICollectionViewFlowLayout *horizontalCellLayout = [UICollectionViewFlowLayout new];
     horizontalCellLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    
     horizontalCellLayout.sectionInset = _edgeInsets;
+    
     _collectionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:horizontalCellLayout];
-    
-    
+    _collectionView.backgroundColor = [UIColor clearColor];
+    [_collectionView setShowsHorizontalScrollIndicator:NO];
     [self.contentView addSubview:_collectionView];
-    
     _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_collectionView]|" options:0  metrics:nil views:@{@"_collectionView":_collectionView}]];
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_collectionView]|" options:0  metrics:nil views:@{@"_collectionView":_collectionView}]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%d-[_collectionView]|",_topOffest] options:0  metrics:nil views:@{@"_collectionView":_collectionView}]];
     
     _itemClassName = itemClassName;
     cellClass = NSClassFromString(_itemClassName);
@@ -84,8 +99,6 @@
     
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    
-    [self setCellFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [CollectionViewCell getXibFrameHeightWithItemClassname:_itemClassName])];
 }
 
 - (void)setTableViewIndexPath:(NSIndexPath *)tableViewIndexPath{
@@ -125,6 +138,8 @@
     UICollectionViewCell *cell =[self.delegate collectionViewCell:self cellForItemAtIndexPath:indexPath];
     return cell;
 }
+
+
 
 #pragma mark - collection view delegate
 
