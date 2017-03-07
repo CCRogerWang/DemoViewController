@@ -10,4 +10,6 @@
 
 @interface CollectionViewItem : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *randomColorLabel;
+
 @end

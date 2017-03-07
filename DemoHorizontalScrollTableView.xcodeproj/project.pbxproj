@@ -9,10 +9,16 @@
 /* Begin PBXBuildFile section */
 		DBF91C361E691198002FA060 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF91C351E691198002FA060 /* main.m */; };
 		DBF91C391E691198002FA060 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF91C381E691198002FA060 /* AppDelegate.m */; };
-		DBF91C3C1E691198002FA060 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF91C3B1E691198002FA060 /* ViewController.m */; };
-		DBF91C3F1E691198002FA060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF91C3D1E691198002FA060 /* Main.storyboard */; };
 		DBF91C411E691199002FA060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBF91C401E691199002FA060 /* Assets.xcassets */; };
 		DBF91C441E691199002FA060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBF91C421E691199002FA060 /* LaunchScreen.storyboard */; };
+		DBF91C501E69125D002FA060 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF91C4E1E69125D002FA060 /* DemoViewController.m */; };
+		DBF91C511E69125D002FA060 /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBF91C4F1E69125D002FA060 /* DemoViewController.xib */; };
+		DBF91C551E69131D002FA060 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF91C531E69131D002FA060 /* CollectionViewCell.m */; };
+		DBF91C561E69131D002FA060 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBF91C541E69131D002FA060 /* CollectionViewCell.xib */; };
+		DBF91C5A1E691A6F002FA060 /* CollectionViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF91C581E691A6F002FA060 /* CollectionViewItem.m */; };
+		DBF91C5B1E691A6F002FA060 /* CollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBF91C591E691A6F002FA060 /* CollectionViewItem.xib */; };
+		DBF91C5F1E6976EB002FA060 /* Type2Item.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF91C5D1E6976EB002FA060 /* Type2Item.m */; };
+		DBF91C601E6976EB002FA060 /* Type2Item.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBF91C5E1E6976EB002FA060 /* Type2Item.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +26,21 @@
 		DBF91C351E691198002FA060 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DBF91C371E691198002FA060 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DBF91C381E691198002FA060 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DBF91C3A1E691198002FA060 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DBF91C3B1E691198002FA060 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DBF91C3E1E691198002FA060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBF91C401E691199002FA060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBF91C431E691199002FA060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBF91C451E691199002FA060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBF91C4D1E69125D002FA060 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		DBF91C4E1E69125D002FA060 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		DBF91C4F1E69125D002FA060 /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		DBF91C521E69131D002FA060 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		DBF91C531E69131D002FA060 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		DBF91C541E69131D002FA060 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		DBF91C571E691A6F002FA060 /* CollectionViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewItem.h; sourceTree = "<group>"; };
+		DBF91C581E691A6F002FA060 /* CollectionViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewItem.m; sourceTree = "<group>"; };
+		DBF91C591E691A6F002FA060 /* CollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewItem.xib; sourceTree = "<group>"; };
+		DBF91C5C1E6976EB002FA060 /* Type2Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type2Item.h; sourceTree = "<group>"; };
+		DBF91C5D1E6976EB002FA060 /* Type2Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type2Item.m; sourceTree = "<group>"; };
+		DBF91C5E1E6976EB002FA060 /* Type2Item.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Type2Item.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +75,18 @@
 			children = (
 				DBF91C371E691198002FA060 /* AppDelegate.h */,
 				DBF91C381E691198002FA060 /* AppDelegate.m */,
-				DBF91C3A1E691198002FA060 /* ViewController.h */,
-				DBF91C3B1E691198002FA060 /* ViewController.m */,
-				DBF91C3D1E691198002FA060 /* Main.storyboard */,
+				DBF91C4D1E69125D002FA060 /* DemoViewController.h */,
+				DBF91C4E1E69125D002FA060 /* DemoViewController.m */,
+				DBF91C4F1E69125D002FA060 /* DemoViewController.xib */,
+				DBF91C521E69131D002FA060 /* CollectionViewCell.h */,
+				DBF91C531E69131D002FA060 /* CollectionViewCell.m */,
+				DBF91C541E69131D002FA060 /* CollectionViewCell.xib */,
+				DBF91C571E691A6F002FA060 /* CollectionViewItem.h */,
+				DBF91C581E691A6F002FA060 /* CollectionViewItem.m */,
+				DBF91C591E691A6F002FA060 /* CollectionViewItem.xib */,
+				DBF91C5C1E6976EB002FA060 /* Type2Item.h */,
+				DBF91C5D1E6976EB002FA060 /* Type2Item.m */,
+				DBF91C5E1E6976EB002FA060 /* Type2Item.xib */,
 				DBF91C401E691199002FA060 /* Assets.xcassets */,
 				DBF91C421E691199002FA060 /* LaunchScreen.storyboard */,
 				DBF91C451E691199002FA060 /* Info.plist */,
@@ -110,6 +134,7 @@
 				TargetAttributes = {
 					DBF91C301E691198002FA060 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CK5MHBYB2A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -139,7 +164,10 @@
 			files = (
 				DBF91C441E691199002FA060 /* LaunchScreen.storyboard in Resources */,
 				DBF91C411E691199002FA060 /* Assets.xcassets in Resources */,
-				DBF91C3F1E691198002FA060 /* Main.storyboard in Resources */,
+				DBF91C561E69131D002FA060 /* CollectionViewCell.xib in Resources */,
+				DBF91C5B1E691A6F002FA060 /* CollectionViewItem.xib in Resources */,
+				DBF91C511E69125D002FA060 /* DemoViewController.xib in Resources */,
+				DBF91C601E6976EB002FA060 /* Type2Item.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,23 +178,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBF91C3C1E691198002FA060 /* ViewController.m in Sources */,
 				DBF91C391E691198002FA060 /* AppDelegate.m in Sources */,
 				DBF91C361E691198002FA060 /* main.m in Sources */,
+				DBF91C5A1E691A6F002FA060 /* CollectionViewItem.m in Sources */,
+				DBF91C551E69131D002FA060 /* CollectionViewCell.m in Sources */,
+				DBF91C501E69125D002FA060 /* DemoViewController.m in Sources */,
+				DBF91C5F1E6976EB002FA060 /* Type2Item.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DBF91C3D1E691198002FA060 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DBF91C3E1E691198002FA060 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DBF91C421E691199002FA060 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -270,7 +293,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CK5MHBYB2A;
 				INFOPLIST_FILE = DemoHorizontalScrollTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.104.DemoHorizontalScrollTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -281,7 +306,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CK5MHBYB2A;
 				INFOPLIST_FILE = DemoHorizontalScrollTableView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.104.DemoHorizontalScrollTableView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -307,6 +334,7 @@
 				DBF91C4A1E691199002FA060 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

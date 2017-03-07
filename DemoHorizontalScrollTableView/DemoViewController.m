@@ -7,16 +7,25 @@
 //
 
 #import "DemoViewController.h"
-
-@interface DemoViewController ()
-
+#import "CollectionViewCell.h"
+#import "CollectionViewItem.h"
+#import "Type2Item.h"
+@interface DemoViewController ()<UITableViewDelegate,UITableViewDataSource,CollectionViewCellDelegate>
+{
+    
+    __weak IBOutlet UITableView *_tableV;
+    
+}
 @end
 
 @implementation DemoViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSLog(@"start");
+    [_tableV registerClass:[CollectionViewCell class] forCellReuseIdentifier:@"CollectionViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +33,75 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - tableview delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 1) {
+        return [CollectionViewCell getXibFrameHeightWithItemClassname:@"CollectionViewItem"];
+    }
+    else{
+        return [CollectionViewCell getXibFrameHeightWithItemClassname:@"Type2Item"];
+    }
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString * className = @"CollectionViewCell";
+    CollectionViewCell * cell = [_tableV dequeueReusableCellWithIdentifier:className];
+    if (!cell) {
+        cell = [[CollectionViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:className];
+    }
+    [cell setDelegate:self];
+    [cell setTableViewIndexPath:indexPath];
+    
+    if (indexPath.row == 1) {
+        [cell setRows:10];
+        [cell setCollectionViewAndItemClassNameWith:@"CollectionViewItem"];
+        return cell;
+    }
+    else{
+        [cell setRows:10];
+        [cell setCollectionViewAndItemClassNameWith:@"Type2Item"];
+        return cell;
+    }
+}
+
+#pragma mark - create random color
+- (UIColor *)getRandomColor{
+    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
+    return color;
+}
+
+#pragma mark - collectionViewCell Delegate
+- (UICollectionViewCell *)collectionViewCell:(CollectionViewCell *)collectionViewCell cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger tableViewIndexPathOfRow = [collectionViewCell getTableViewIndexPath].row;
+    if (tableViewIndexPathOfRow == 0) {
+        Type2Item * cell = [[collectionViewCell getCollectionView] dequeueReusableCellWithReuseIdentifier:[collectionViewCell getItemClassName] forIndexPath:indexPath];
+        cell.backgroundColor = [self getRandomColor];
+        
+        return cell;
+    }
+    else if (tableViewIndexPathOfRow == 1){
+        CollectionViewItem * cell = [[collectionViewCell getCollectionView] dequeueReusableCellWithReuseIdentifier:[collectionViewCell getItemClassName] forIndexPath:indexPath];
+        cell.randomColorLabel.textColor = [self getRandomColor];
+        return cell;
+    }
+    else{
+        UICollectionViewCell * cell = [[collectionViewCell getCollectionView] dequeueReusableCellWithReuseIdentifier:[collectionViewCell getItemClassName] forIndexPath:indexPath];
+        return cell;
+    }
+}
+
+- (void)collectionViewCell:(CollectionViewCell *)CollectionViewCell didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *message = [NSString stringWithFormat:@"tableViewRow:%ld, numberOfItem:%ld",(long)[CollectionViewCell getTableViewIndexPath].row, (long)indexPath.row];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+}
 
 @end
