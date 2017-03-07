@@ -41,12 +41,20 @@
     }
     return self;
 }
+
+- (void)removeCellSubViews{
+    for (UIView * view in self.contentView.subviews) {
+        [view removeFromSuperview];
+    }
+}
+
 #pragma mark - configure
 - (void)configureCollectionViewCellDelegate:(id<CollectionViewCellDelegate>)delegate
                          tableViewIndexPath:(NSIndexPath *)tableViewIndexPath
                                        rows:(int) rows
                               itemClassName:(NSString *)itemClassName
                                   topOffset:(int)topOffset{
+    [self removeCellSubViews];
     self.delegate = delegate;
     _tableViewIndexPath = tableViewIndexPath;
     _rows = rows;
