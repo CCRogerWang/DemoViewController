@@ -1,6 +1,6 @@
 # HorizontalScrollTableView
-This is a demo for horizontal scroll tableView.
-CollectionViewCell can eazy help you create a horizontal scroll tableView. 
+This is a demo for horizontal scroll tableView.CollectionViewCell can eazy help you create a horizontal scroll tableView.  
+Download the project to see more detail.  
 ![Alt Text](https://github.com/CCRogerWang/HorizontalScrollTableView/blob/master/demo.gif)
 # Install
 Just drag CollectionViewCell.h/.m to your project.
